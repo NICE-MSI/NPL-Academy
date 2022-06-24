@@ -8,16 +8,17 @@ print(df)  #print data file
 plt.plot(df["m/z"],df["A_APCKRAS"], color='blue', label='tissue A-APCKRAS')
 plt.plot(df["m/z"],df["D_APCKRAS"], color='red', label='tissue D-APCKRAS')
 plt.legend()
-#plt.show()
+plt.show()
 plt.clf()
 
 plt.plot(df["m/z"],df["A_APCKRAS"], color='blue', label='tissue A-APCKRAS')
 plt.xlim((400,420))
-#plt.show()
+plt.show()
 plt.clf()
 
 
-print(np.std(df["A_APCKRAS"]), np.std(df["D_APCKRAS"]))
+print('standard deviation for tissue A', np.std(df["A_APCKRAS"]))
+print('standard deviation for tissue D',np.std(df["D_APCKRAS"]))
 
 treshold = np.std(df["A_APCKRAS"])/20
 
