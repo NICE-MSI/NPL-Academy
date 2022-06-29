@@ -70,3 +70,20 @@ peaks['t'] = t.tolist()
 peaks['p'] = p.tolist()
 
 print(peaks)
+
+# peaks = pd.read_excel("C:/Users/ag12/PycharmProjects/NPL-Academy/tumour_normal.xlsx")  # read data files
+# #print(peaks.columns)
+#
+# t=np.zeros(len(peaks['m/z']))
+# p=np.zeros(len(peaks['m/z']))
+#
+# for jj in range(0,len(peaks['m/z'])):
+#     apckras_intensities = (peaks.iloc[jj, [1,5,6]].mean())
+#     apc_intensities = (peaks.iloc[jj, [2,3,4]].mean())
+#     t[jj],p[jj] = ttest_ind(apckras_intensities,apc_intensities,equal_var=False)
+#
+# peaks['t'] = t.tolist()
+# peaks['p'] = p.tolist()
+#
+# print(peaks)
+#print(peaks.nsmallest(10,'p'))
