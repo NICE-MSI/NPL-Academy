@@ -12,7 +12,7 @@ plt.show()
 plt.clf()
 
 plt.plot(df["m/z"],df["A_APCKRAS"], color='blue', label='tissue A-APCKRAS')
-plt.xlim((400,420))
+plt.xlim((300,320))
 plt.show()
 plt.clf()
 
@@ -20,15 +20,25 @@ plt.clf()
 print('standard deviation for tissue A', np.std(df["A_APCKRAS"]))
 print('standard deviation for tissue D',np.std(df["D_APCKRAS"]))
 
-treshold = np.std(df["A_APCKRAS"])/20
+treshold = np.std(df["A_APCKRAS"])
 
 plt.plot(df["m/z"],df["A_APCKRAS"].where(df["A_APCKRAS"]<treshold), color='blue', label='noise A-APCKRAS')
 plt.plot(df["m/z"],df["A_APCKRAS"].where(df["A_APCKRAS"]>=treshold), color='red', label='signal A-APCKRAS')
 
 # plt.plot(df["m/z"],df["D_APCKRAS"].where(df["D_APCKRAS"]<treshold), color='blue', label='tissue A-APCKRAS')
 # plt.plot(df["m/z"],df["D_APCKRAS"].where(df["D_APCKRAS"]>=treshold), color='red', label='tissue A-APCKRAS')
-plt.xlim((400,405))
-plt.ylim((-2,14))
-#plt.show()
-plt.savefig("C:/Users/ag12/PycharmProjects/NPL-Academy/outputs/test.png")
+plt.xlim((300,320))
+#plt.ylim((-2,14))
+plt.show()
+#plt.savefig("C:/Users/ag12/PycharmProjects/NPL-Academy/outputs/test.png")
+plt.clf()
 
+
+plt.plot(df["m/z"],df["A_APCKRAS"].where(df["A_APCKRAS"]<treshold), color='blue', label='noise A-APCKRAS')
+plt.plot(df["m/z"],df["A_APCKRAS"].where(df["A_APCKRAS"]>=treshold), color='red', label='signal A-APCKRAS')
+
+# plt.plot(df["m/z"],df["D_APCKRAS"].where(df["D_APCKRAS"]<treshold), color='blue', label='tissue A-APCKRAS')
+# plt.plot(df["m/z"],df["D_APCKRAS"].where(df["D_APCKRAS"]>=treshold), color='red', label='tissue A-APCKRAS')
+plt.xlim((310,320))
+plt.ylim((-1E5,6E5))
+plt.show()
