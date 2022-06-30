@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.stats import ttest_ind
-df = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/spectra.csv", index_col=False)  # read data files
-print(df)  #print data file
-#
+# df = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/spectra.csv", index_col=False)  # read data files
+# print(df)  #print data file
+# #
 # plt.plot(df["m/z"],df["A_APCKRAS"], color='blue', label='tissue A-APCKRAS')
 # plt.plot(df["m/z"],df["D_APCKRAS"], color='red', label='tissue D-APCKRAS')
 # plt.legend()
@@ -44,46 +44,20 @@ print(df)  #print data file
 # plt.show()
 
 
-peaks = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/top70_peaks.csv")  # read data files
-#print(peaks)  #print data file
-
-print(peaks.columns)
-peaks['mean APCKRAS'] = peaks.iloc[:, [1,5,6]].mean(axis=1)
-peaks['mean APC'] = peaks.iloc[:, [2,3,4]].mean(axis=1)
-
-peaks['ratio'] = peaks['mean APCKRAS']/peaks['mean APC']
-
-peaks.sort_values(by=['ratio'])
-#print(peaks.sort_values(by=['ratio'], ascending=False))
-
+# peaks = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/top70_peaks.csv")  # read data files
+# #print(peaks)  #print data file
+#
+# print(peaks.columns)
+# peaks['mean APCKRAS'] = peaks.iloc[:, [1,5,6]].mean(axis=1)
+# peaks['mean APC'] = peaks.iloc[:, [2,3,4]].mean(axis=1)
+#
+# peaks['ratio'] = peaks['mean APCKRAS']/peaks['mean APC']
+#
+# peaks.sort_values(by=['ratio'])
+# #print(peaks.sort_values(by=['ratio'], ascending=False))
+#
 #print(peaks.nlargest(10,'ratio'))
 
-t=np.zeros(len(peaks['ratio']))
-p=np.zeros(len(peaks['ratio']))
-
-for jj in range(0,len(peaks['ratio'])):
-    apckras_intensities = np.array(peaks.iloc[jj, [1,5,6]])
-    apc_intensities = np.array(peaks.iloc[jj, [2,3,4]])
-    t[jj],p[jj] = ttest_ind(apckras_intensities,apc_intensities,equal_var=False)
-
-peaks['t'] = t.tolist()
-peaks['p'] = p.tolist()
-
-print(peaks)
-
-# peaks = pd.read_excel("C:/Users/ag12/PycharmProjects/NPL-Academy/tumour_normal.xlsx")  # read data files
-# #print(peaks.columns)
-#
-# t=np.zeros(len(peaks['m/z']))
-# p=np.zeros(len(peaks['m/z']))
-#
-# for jj in range(0,len(peaks['m/z'])):
-#     apckras_intensities = (peaks.iloc[jj, [1,5,6]].mean())
-#     apc_intensities = (peaks.iloc[jj, [2,3,4]].mean())
-#     t[jj],p[jj] = ttest_ind(apckras_intensities,apc_intensities,equal_var=False)
-#
-# peaks['t'] = t.tolist()
-# peaks['p'] = p.tolist()
-#
-# print(peaks)
-#print(peaks.nsmallest(10,'p'))
+ttest = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/t_test_tumours.csv")  # read data files
+print(ttest)
+print(ttest.nsmallest(10,'t_value'))
