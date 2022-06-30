@@ -60,4 +60,4 @@ from scipy.stats import ttest_ind
 
 ttest = pd.read_csv("C:/Users/ag12/PycharmProjects/NPL-Academy/t_test_tumours.csv")  # read data files
 print(ttest)
-print(ttest.nsmallest(10,'t_value'))
+print(ttest.nsmallest(10,'p_value'))
